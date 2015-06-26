@@ -110,8 +110,8 @@ var defaultProps = {
     metadata: {
         id: null,
         chartType: "chartgrid",
-        title: "Your Title Here",
-        source: "Something like Data: Bureau of Labor Statistics",
+        title: "LA County Voter Turnout (1962-2014)",
+        source: "Data: Via LA County Registrar/Recorder website",
         credit: "KPCC using Quartz\'s Chartbuilder",
         size: "auto"
     }

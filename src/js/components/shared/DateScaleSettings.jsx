@@ -58,6 +58,7 @@ var DateScaleSettings = React.createClass({
 			{ value: "6m", content: "6 months" },
 			{ value: "1y", content: "1 year" },
 			{ value: "2y", content: "2 years" },
+            { value: "4y", content: "4 years" },
 			{ value: "5y", content: "5 years" },
 			{ value: "10y", content: "10 years" },
 			{ value: "20y", content: "20 years" },

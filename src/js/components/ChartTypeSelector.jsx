@@ -76,18 +76,27 @@ var ChartTypeSelctor = React.createClass({
 
 	render: function() {
 		return (
-		<div className="editor-options">
-			<h2>
-				<span className="step-number">1</span>
-				<span>Select chart type</span>
-			</h2>
-			<ButtonGroup
-				buttons={this.state.chartConfig}
-				onClick={this._handleChartTypeChange}
-				className="chart-type-select"
-				value={this.props.metadata.chartType}
-			/>
-		 </div>
+            <div className="editor-options">
+                <h2>
+                    <span className="step-number">0</span>
+                    <span>Learn about the chart types</span>
+                </h2>
+                <ul>
+                    <li><a href="https://github.com/SCPR/Chartbuilder/blob/master/tutorials/basic-chart.md" target="_blank">How to make a line chart with time series data</a></li>
+                    <li><a href="https://github.com/SCPR/Chartbuilder/blob/master/tutorials/bar-chart-with-ranking-data.md" target="_blank">How to make a bar chart with ranking data</a></li>
+                    <li><a href="https://github.com/SCPR/Chartbuilder/blob/master/tutorials/column-chart-ordinal-data.md" target="_blank">How to make a column chart with ordinal data</a></li>
+                </ul>
+            <h2>
+                <span className="step-number">1</span>
+                <span>Select chart type</span>
+            </h2>
+            <ButtonGroup
+                buttons={this.state.chartConfig}
+                onClick={this._handleChartTypeChange}
+                className="chart-type-select"
+                value={this.props.metadata.chartType}
+            />
+            </div>
 		);
 	}
 

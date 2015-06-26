@@ -185,6 +185,11 @@ var dateFrequencies = {
 		maxDate = d3.time.day.offset(maxDate, 1);
 		return interval.range(minDate, maxDate, 2);
 	},
+    "4y": function(minDate, maxDate) {
+        var interval = d3.time.year;
+        maxDate = d3.time.day.offset(maxDate, 0);
+        return interval.range(minDate, maxDate, 4);
+    },
 	"5y": function(minDate, maxDate) {
 		var interval = d3.time.year;
 		maxDate = d3.time.day.offset(maxDate, 1);
