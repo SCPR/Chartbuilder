@@ -88,10 +88,10 @@ var defaultProps = {
                 ticks: 5,
                 precision: 0,
                 prefix: "",
-                suffix: ""
+                suffix: "%"
             },
             dateSettings: {
-                dateFrequency: "auto",
+                dateFrequency: "us-me4",
                 dateFormat: "auto"
             }
         },
