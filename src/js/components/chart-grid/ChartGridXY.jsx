@@ -297,6 +297,7 @@ function drawXYChartGrid(el, state) {
 		})
 		.using("leftAxis", function(axis){
 			yAxisUsing.call(this, "primary", axis, state);
+            axis.afterRender(globalAfterRender)
 		})
 		.outerWidth(state.dimensions.width + chartProps.extraPadding.left);
 		// set tick width to left padding for first row
@@ -323,6 +324,7 @@ function drawXYChartGrid(el, state) {
 			axis.tickFormat(function() {
 				return "";
 			});
+            axis.afterRender(globalAfterRender)
 		})
 		chart.outerWidth(state.dimensions.width);
 		chart.extraPadding(extraPadding);
