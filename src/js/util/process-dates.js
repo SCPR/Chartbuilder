@@ -222,10 +222,15 @@ var dateFrequencies = {
 		// only label US midterm election years
 		var interval = d3.time.year;
 		maxDate = d3.time.day.offset(maxDate, 4);
-		return interval.range(minDate, maxDate, 4).map(function(d) {
+		output = interval.range(minDate, maxDate, 4).map(function(d) {
 			var fullYear = d.getFullYear()
 			return new Date(fullYear - ((fullYear + 2) % 4),1,1)
 		});
+
+        var last = output[output.length-1]
+        output.push(new Date(last.getFullYear() + 4,1,1))
+
+         return output
 	}
 };
 
