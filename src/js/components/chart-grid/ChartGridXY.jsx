@@ -24,6 +24,41 @@ var HiddenSvg = require("../svg/HiddenSvg.jsx");
 /* One `GridChart` will be drawn for every column used in our grid */
 var GridChart = require("./GridChart.jsx");
 
+function globalAfterRender (feature,data,chartArea,selection,isPrimary){
+                var chart = this;
+                var ticks = selection.selectAll(".tick");
+                var text = ticks.selectAll("text");
+                var max = d3.max(chart.axes.left.domain());
+
+                var maxTick = ticks.filter(function(d) {
+                    return (d === max);
+                });
+
+                var bcr_max = maxTick[0][0].getBoundingClientRect();
+                var bcr_tick = ticks[0][1].getBoundingClientRect();
+                var diff = bcr_max.width - bcr_tick.width
+                var maxTickRect = maxTick.selectAll("rect").data([0]).enter().append("rect");
+                var maxTickText = maxTick.select("text")
+
+                var newX = +maxTickText.attr("x") + diff
+
+
+                maxTickText.attr("x",newX)
+
+
+                var textNode = maxTickText.node();
+                var bcr = textNode.getBoundingClientRect();
+                var width = bcr.width;
+
+                maxTick.select("rect").attr({
+                    x: newX - width,
+                    y: (-1 * bcr.height / 2),
+                    width: width + 6,
+                    height: bcr.height
+                });
+                maxTickText.moveToFront();
+            }
+
 /**
  * ### Component that renders xy charts in a chart grid
  * @property {boolean} editable - Allow the rendered component to interacted with and edited
