@@ -6,7 +6,6 @@ var ScaleReset = require("./ScaleReset.jsx");
 
 /* Chartbuilder UI components */
 var chartbuilderUI = require("chartbuilder-ui");
-var AlertGroup = chartbuilderUI.AlertGroup;
 var LabelledTangle = chartbuilderUI.LabelledTangle;
 var TextInput = chartbuilderUI.TextInput;
 
@@ -16,29 +15,27 @@ var TextInput = chartbuilderUI.TextInput;
  * @instance
  * @memberof editors
  */
-var XY_yScaleSettings = React.createClass({
+var NumericScaleSettings = React.createClass({
 
 	propTypes: {
+		id: PropTypes.string,
 		className: PropTypes.string,
-		id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 		name: PropTypes.string,
 		onReset: PropTypes.func,
 		onUpdate: PropTypes.func.isRequired,
 		scale: PropTypes.object.isRequired,
 		stepNumber: PropTypes.string,
-		titleOverride: PropTypes.string,
-		errors: PropTypes.array
+		titleOverride: PropTypes.string
 	},
 
 	_handleScaleUpdate: function(k, v) {
-		var scale = clone(this.props.scale, true);
-
+		var scaleObj = clone(this.props.scale, true);
 		if(k != "precision") {
-			scale[this.props.id].precision = 0;
+			scaleObj[this.props.id].precision = 0;
 		}
 
-		scale[this.props.id][k] = v;
-		this.props.onUpdate(scale);
+		scaleObj[this.props.id][k] = v;
+		this.props.onUpdate(scaleObj);
 	},
 
 	_handleDomainUpdate: function(k, v) {
@@ -52,24 +49,8 @@ var XY_yScaleSettings = React.createClass({
 		this.props.onUpdate(scale);
 	},
 
-	_renderErrors: function() {
-
-		if (!this.props.errors) {
-			return null;
-		} else if (this.props.errors.length === 0) {
-			return null;
-		} else {
-			return (
-				<div className="error-display">
-					<AlertGroup alerts={this.props.errors} />
-				</div>
-			);
-		}
-	},
-
 	render: function() {
 		var currScale = this.props.scale[this.props.id];
-		var errors = this._renderErrors();
 
 		/*
 		 * Figure out the amount by which to increment the tangle (drag) values: Eg
@@ -80,6 +61,7 @@ var XY_yScaleSettings = React.createClass({
 		 * And so on
 	  */
 		var tangleStep;
+
 		var range = Math.abs(currScale.domain[1] - currScale.domain[0]);
 		if (range <= 10) {
 			tangleStep = 0.5;
@@ -88,9 +70,7 @@ var XY_yScaleSettings = React.createClass({
 			tangleStep = Math.pow(10, (numDigits - 2));
 		}
 
-		var tickSetting;
-		if (this.props.id === "primaryScale") {
-			tickSetting = (
+		var tickSetting = (
 				<LabelledTangle
 					label="Ticks"
 					labelClass="editor-label"
@@ -98,25 +78,24 @@ var XY_yScaleSettings = React.createClass({
 					onChange={this._handleScaleUpdate.bind(null, "ticks")}
 					onInput={this._handleScaleUpdate.bind(null, "ticks")}
 					min={2}
-					max={8}
+					max={11}
 					value={currScale.ticks}
 				/>
 			);
-		}
 
 		var title_block = (
 			<h2 className="scale-option-title">
 				<span className="step-number">{this.props.stepNumber}</span>
 				{this.props.titleOverride ? this.props.titleOverride : "Configure the " + this.props.name + " axis"}
 			</h2>
-			);
+		);
 
-		if (this.props.stepNumber === "") {
+		if(this.props.stepNumber === "") {
 			title_block = (
 				<h2 className="scale-option-title">
 					{this.props.titleOverride ? this.props.titleOverride : "Configure the " + this.props.name + " axis"}
 				</h2>
-				);
+			);
 		}
 
 		return (
@@ -172,10 +151,9 @@ var XY_yScaleSettings = React.createClass({
 						className="scale-reset"
 					/>
 				</div>
-				{errors}
 			</div>
 		);
 	}
 });
 
-module.exports = XY_yScaleSettings;
+module.exports = NumericScaleSettings;

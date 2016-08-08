@@ -5,12 +5,13 @@
 
 var React = require("react");
 var PropTypes = React.PropTypes;
-var update = React.addons.update;
+var update = require("react-addons-update");
 var d4 = require("d4");
 
-var clone = require("lodash/lang/clone");
-var map = require("lodash/collection/map");
-var reduce = require("lodash/collection/reduce");
+var bind = require("lodash/bind");
+var clone = require("lodash/clone");
+var map = require("lodash/map");
+var reduce = require("lodash/reduce");
 
 var SessionStore = require("../../stores/SessionStore");
 var separators = SessionStore.get("separators");
@@ -171,8 +172,7 @@ var ChartGridBars = React.createClass({
 				key="hiddenLabel"
 			/>
 		);
-
-		var gridCharts = map(chartProps.data.slice(0, numCharts), function(d, i) {
+		var gridCharts = map(chartProps.data.slice(0, numCharts), bind(function(d, i) {
 			// Get the props we need for each chart
 			var gridChartProps = {
 				chartSettings: chartProps.chartSettings[i],
@@ -182,19 +182,21 @@ var ChartGridBars = React.createClass({
 				extraPadding: extraPadding
 			};
 
-			return <GridChart
-				chartProps={gridChartProps}
-				rendererFunc={drawBarChartGrid}
-				displayConfig={displayConfig}
-				styleConfig={this.props.styleConfig}
-				key={i}
-				index={i}
-				barLabelOverlap={this.state.barLabelOverlap}
-				grid={chartProps._grid}
-				dimensions={dimensionsPerGrid}
-				padding={displayConfig.padding}
-			/>
-		}, this);
+			return (
+				<GridChart
+					chartProps={gridChartProps}
+					rendererFunc={drawBarChartGrid}
+					displayConfig={displayConfig}
+					styleConfig={this.props.styleConfig}
+					key={i}
+					index={i}
+					barLabelOverlap={this.state.barLabelOverlap}
+					grid={chartProps._grid}
+					dimensions={dimensionsPerGrid}
+					padding={displayConfig.padding}
+				/>
+			);
+		}, this));
 
 		/*
 		 * Pass the following JSX components to the `Svg` component, which will
@@ -236,7 +238,7 @@ function drawBarChartGrid(el, state) {
 	var chart = cb_bar_grid()
 		.outerHeight(state.dimensions.height)
 		.margin(chartProps.margin)
-		.padding(state.padding)
+		.padding(state.padding);
 
 	chart
 	.using("series-label",function(lab){
