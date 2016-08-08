@@ -116,12 +116,12 @@ var defaultProps = {
 	 * @memberof chart_grid_defaultProps
 	 */
 	metadata: {
-		id: null,
-		chartType: "chartgrid",
-		title: "",
-		source: "",
-		credit: "Made with Chartbuilder",
-		size: "auto"
+        id: null,
+        chartType: "chartgrid",
+        title: "LA County Voter Turnout (1962-2014)",
+        source: "Via LA County Registrar/Recorder website",
+        credit: "KPCC using Quartz\'s Chartbuilder",
+        size: "auto"
 	}
 };
 

@@ -137,10 +137,10 @@ var defaultProps = {
 	 */
 	metadata: {
 		chartType: 'xy',
-		title: "",
-		source: "",
-		credit: "Made with Chartbuilder",
-		size: "auto"
+        title: "LA County Voter Turnout (1962-2014)",
+        source: "Via LA County Registrar/Recorder website",
+        credit: "KPCC using Quartz\'s Chartbuilder",
+        size: "auto"
 	}
 };
 
