@@ -232,7 +232,6 @@ var dateFrequencies = {
         maxDate = d3.time.day.offset(maxDate, 4);
         output = interval.range(minDate, maxDate, 4).map(function(d) {
             var fullYear = d.getFullYear()
-            console.log(fullYear);
             return new Date(fullYear - ((fullYear + 2) % 4), 1, 1)
         });
         var last = output[output.length-1]
