@@ -33,6 +33,10 @@ svg
 
 .d4
   font-size $em_size
+  .leftAxis path.domain
+    display none
+  .xAxis path.domain
+    display none
   .axis
     .tick
       font-family $font-sans-light
@@ -72,7 +76,8 @@ svg
       .tick:first-child
         text
           text-anchor start
-
+  .xAxislabel
+    fill $color-chart-axis-text
   .concealer-label
     font-family $font-sans-light
     text
@@ -110,6 +115,18 @@ svg
 .svg-text
   font-family $font-sans-light
   font-size $em_size
+
+  tspan
+    &.em
+      font-style italic
+
+    &.strong
+      font-family $font-sans-bold
+
+    &.strong .em, &.em .strong
+      font-family $font-sans-bold
+      font-style italic
+
   &.svg-text-credit
     font-size $em_size*0.6
     fill $color-chart-meta
@@ -136,7 +153,8 @@ svg
 .svg-label-text
   font-size $em_size
   font-family $font-sans-light
-  cursor move
+  &.draggable
+    cursor move
 
 .crosshair
   line

@@ -3,8 +3,7 @@ var _ = require("lodash");
 var defaultInput = require("./util/test-input");
 
 var parseDataBySeries = require("../src/js/util/parse-data-by-series");
-var parseDelimitedInput = require("../src/js/util/parse-delimited-input");
-var validateDataInput = require("../src/js/util/validate-data-input");
+var parseDelimitedInput = require("../src/js/util/parse-delimited-input").parser;
 var parseUtils = require("../src/js/util/parse-utils");
 var util = require("./util/util");
 
@@ -65,8 +64,8 @@ test("parse input: parse delimited input", function(t) {
 
 	var exceptions = [
 		"Date	End of month	3-month moving average",
-		"10/31/1984	£886.79	$749.9866667",
-		"11/30/1984	754.62%	$911.4266667",
+		"10/31/1984	£1,886.79	$749.9866667",
+		"11/30/1984	754.62%	$1,011.4266667",
 		"12/31/1984	null	928.8933333",
 		"1/31/1985	124.27	674.72",
 		"2/28/1985	604.22	null",
@@ -101,7 +100,7 @@ test("parse input: parse delimited input", function(t) {
 		return prev && (isNaN(curr) === false);
 	}, true);
 
-	t.ok(special_stripped, "numbers surrounded by special characters are parsed as numbers");
+	t.ok(special_stripped, "numbers with special characters are parsed as numbers");
 
 	t.end();
 });

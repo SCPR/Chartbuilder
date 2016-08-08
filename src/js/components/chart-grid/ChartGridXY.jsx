@@ -5,11 +5,13 @@
 
 var React = require("react");
 var PropTypes = React.PropTypes;
-var update = React.addons.update;
+var update = require("react-addons-update");
 var d4 = require("d4");
-var clone = require("lodash/lang/clone");
-var map = require("lodash/collection/map");
-var filter = require("lodash/collection/filter");
+
+var bind = require("lodash/bind");
+var clone = require("lodash/clone");
+var filter = require("lodash/filter");
+var map = require("lodash/map");
 
 /* Helper functions */
 var cb_xy = require("../../charts/cb-charts").cb_xy;
@@ -195,7 +197,7 @@ var ChartGridXY = React.createClass({
 
 		/* Get the number of charts and only render that many */
 		var numCharts = chartProps._grid.rows * chartProps._grid.cols;
-		var gridCharts = map(chartProps.data.slice(0, numCharts), function(d, i) {
+		var gridCharts = map(chartProps.data.slice(0, numCharts), bind(function(d, i) {
 			// Get the props we need for each chart
 			var gridChartProps = {
 				chartSettings: chartProps.chartSettings[i],
@@ -217,7 +219,7 @@ var ChartGridXY = React.createClass({
 				dimensions={dimensionsPerGrid}
 				padding={displayConfig.padding}
 			/>
-		}, this);
+		}, this));
 
 		return (
 			<g>
@@ -247,6 +249,8 @@ function drawXYChartGrid(el, state) {
 	var colorIndex = chartProps.chartSettings.colorIndex;
 	var gridType = state.grid.type;
 	var dateSettings = state.dateSettings;
+	var numericSettings = state.numericSettings;
+
 
 	xyConfig = displayConfig.xy;
 
@@ -299,6 +303,28 @@ function drawXYChartGrid(el, state) {
 			yAxisUsing.call(this, "primary", axis, state);
             axis.afterRender(globalAfterRender)
 		})
+		.using("x-axis-label", function(label) {
+			label.beforeRender(function(data){
+
+				return [{
+					ypos: numericSettings ? state.dimensions.height - state.padding.bottom + state.styleConfig.overtick_bottom : 0,
+					xval: numericSettings ? scale.numericSettings.domain[0] : 0,
+					text: numericSettings ? numericSettings.suffix : "",
+					dy: state.grid.rows == 1 ? "1.2em" : 0
+				}]
+			})			
+			
+		})
+		.using("xAxis", function(axis) {
+			if(chartProps.scale.isNumeric) {
+				axis.tickValues(chartProps.scale.numericSettings.tickValues)
+				axis.tickFormat(function(d,i) {
+					return (i == 0 ? chartProps.scale.numericSettings.prefix : "") +  help.roundToPrecision(d, chartProps.scale.numericSettings.precision)
+				})
+			}
+
+			axis.innerTickSize(styleConfig.overtick_bottom);
+		})
 		.outerWidth(state.dimensions.width + chartProps.extraPadding.left);
 		// set tick width to left padding for first row
 		extraPadding.left = chartProps.extraPadding.left;
@@ -326,10 +352,28 @@ function drawXYChartGrid(el, state) {
 			});
             axis.afterRender(globalAfterRender)
 		})
+		.using("xAxis", function(axis) {
+			if(chartProps.scale.isNumeric) {
+				axis.tickValues(chartProps.scale.numericSettings.tickValues)
+				axis.tickFormat(function(d,i) {
+					return help.roundToPrecision(d, chartProps.scale.numericSettings.precision)
+				})
+			}
+
+			axis.innerTickSize(styleConfig.overtick_bottom);
+		})
+		.using("x-axis-label", function(label) {
+			label.beforeRender(function(data){
+				return [{
+					text: "",
+					dy: 0
+				}]
+			})			
+			
+		})
 		chart.outerWidth(state.dimensions.width);
 		chart.extraPadding(extraPadding);
 	}
-
 	chart
 	.x(function(x) {
 		x.key("entry");
@@ -339,9 +383,14 @@ function drawXYChartGrid(el, state) {
 			rangeL += displayConfig.columnExtraPadding;
 			rangeR -= displayConfig.columnExtraPadding;
 		}
-		if (chartProps.scale.hasDate) {
+		if (dateSettings) {
 			x.scale("time");
 			x.domain(dateSettings.domain);
+		}
+		else if (numericSettings) {
+			x.scale("linear");
+			x.clamp(false)
+			x.domain(numericSettings.domain);
 		}
 		x.range([rangeL, rangeR]);
 	})
@@ -355,8 +404,16 @@ function drawXYChartGrid(el, state) {
 	.using("xAxis", function(axis) {
 		if (chartProps.scale.hasDate) {
 			axis.tickValues(dateSettings.dateTicks);
-			axis.tickFormat(function(d) {
-				return dateSettings.dateFormatter(d);
+			var curOffset = Date.create().getTimezoneOffset();
+			var displayTZ = state.chartProps.scale.dateSettings.displayTZ;
+			var inputOffset = state.chartProps.scale.dateSettings.inputTZ ? -help.TZOffsetToMinutes(state.chartProps.scale.dateSettings.inputTZ) : curOffset;
+			var timeOffset = 0;
+			axis.tickFormat(function(d,i) {
+				if(displayTZ === "as-entered") {
+					timeOffset = curOffset - inputOffset;
+				}
+
+				return dateSettings.dateFormatter(d.clone(),i,timeOffset);
 			});
 		}
 
