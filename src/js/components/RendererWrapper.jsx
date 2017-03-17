@@ -24,7 +24,6 @@ var ChartViewActions = require("../actions/ChartViewActions");
 var convertConfig = require("../util/parse-config-values");
 var SessionStore = require("../stores/SessionStore");
 var breakpoints = require("../config/chart-breakpoints");
-var BackgroundRect = require("./svg/BackgroundRect.jsx");
 var ChartFooter = require("./svg/ChartFooter.jsx");
 
 /*
@@ -32,7 +31,7 @@ var ChartFooter = require("./svg/ChartFooter.jsx");
  * also associates a given chart type with its Editor and Renderer components.
  * Used here to identify the Renderer.
 */
-var chartConfigs = require("../charts/chart-type-configs");
+var chartConfigs = require("../charts/chart-config");
 var chartStyle = require("../config/chart-style");
 var chartRenderers = require("../charts/renderers");
 
@@ -55,7 +54,6 @@ var RendererWrapper = React.createClass({
 		svgClassName: PropTypes.string
 	},
 
-	// don't render incoming chart if there are errors in parsing
 	shouldComponentUpdate: function(nextProps, nextState) {
 		if (!nextProps.model.errors) {
 			return true;
@@ -76,7 +74,6 @@ var RendererWrapper = React.createClass({
 		};
 	},
 
-	// process the size-relative chart config of a chart type when type is changed
 	componentWillReceiveProps: function(nextProps) {
 		var newType = nextProps.model.metadata.chartType;
 		var prevType = this.props.model.metadata.chartType;
@@ -89,15 +86,12 @@ var RendererWrapper = React.createClass({
 	componentWillMount: function() {
 		var chartType = this.props.model.metadata.chartType;
 		var size_calcs = {};
-		// set chart breakpoints
 		if (this.props.width) {
 			var bp = breakpoints.getBreakpointObj(this.props.enableResponsive, this.props.width);
 			size_calcs = this._resizeUpdate(this.props, bp, this.props.width);
 		}
 
 		var chartProps = null;
-		// process date strings as dates
-		// TODO: why do we need this again?
 		if (this.props.model.chartProps.scale.hasDate && !this.props.editable) {
 			var _chartProps = clone(this.props.model.chartProps, true);
 			var newData = _chartProps.data.map(function(d) {
@@ -116,7 +110,6 @@ var RendererWrapper = React.createClass({
 		this.setState(state);
 	},
 
-	// method for updating configs and breakpoints when width changes
 	_resizeUpdate: function(props, bp, domNodeWidth) {
 		var chartType = props.model.metadata.chartType;
 		return {
@@ -128,8 +121,11 @@ var RendererWrapper = React.createClass({
 		};
 	},
 
-	// check for a new width and update everything if it has changed
-	_updateWidth: function() {
+	componentVisibilityChanged: function() {
+		this._updateWidth();
+	},
+
+	_updateWidth: function(force) {
 		var domNodeWidth = ReactDOM.findDOMNode(this).offsetWidth;
 		var bp = breakpoints.getBreakpointObj(this.props.enableResponsive, domNodeWidth);
 		if (domNodeWidth !== this.state.domNodeWidth) {
@@ -140,7 +136,6 @@ var RendererWrapper = React.createClass({
 		}
 	},
 
-	// add resize listener if chart is responsive
 	componentDidMount: function() {
 		if (this.props.enableResponsive) {
 			this._updateWidth(true);
@@ -149,14 +144,12 @@ var RendererWrapper = React.createClass({
 		}
 	},
 
-	// remove resize listener on unmount
 	componentWillUnmount: function() {
 		if (this.props.enableResponsive) {
 			window.removeEventListener("resize", this._updateWidth);
 		}
 	},
 
-	// TODO: remove this feature? seems never used
 	_getMobileMetadata: function(metadata, mobileSettings) {
 		var setMobile = reduce(keys(metadata), function(obj, key) {
 			if (mobileSettings[key] && mobileSettings[key] !== "") {
@@ -170,11 +163,22 @@ var RendererWrapper = React.createClass({
 		return setMobile;
 	},
 
-	//_handleSvgUpdate: function(k, v) {
-		//var newSetting = {};
-		//newSetting[k] = v;
-		//this.setState(update(this.state, { $merge: newSetting }));
-	//},
+	_handleSvgUpdate: function(k, v) {
+		var newSetting = {};
+		newSetting[k] = v;
+		this.setState(update(this.state, { $merge: newSetting }));
+	},
+
+	_calculateDimensions: function(width, displayConfig) {
+		var calculator = this.state.chartConfig.calculateDimensions;
+		return calculator(width, {
+			model: this.props.model,
+			displayConfig: displayConfig,
+			enableResponsive: this.props.enableResponsive,
+			extraHeight: this.state.extraHeight,
+			showMetadata: this.props.showMetadata
+		});
+	},
 
 	render: function() {
 		var chartType = this.props.model.metadata.chartType;
@@ -187,8 +191,6 @@ var RendererWrapper = React.createClass({
 		}
 
 		// Reduce padding and margin if metadata is not shown
-		// this is used for the embed. should be removable if/once we render
-		// metadata with HTML
 		if (this.props.showMetadata === false) {
 			var _padding = {
 				top: displayConfig.padding.top,
@@ -208,6 +210,19 @@ var RendererWrapper = React.createClass({
 			}});
 		}
 
+		var dimensions = this._calculateDimensions(width, displayConfig);
+
+		try {
+			if (isNaN(dimensions.width)) {
+				throw new TypeError("In RendererWrapper, `dimensions.height` must be a number");
+			}
+			if (isNaN(dimensions.height)) {
+				throw new TypeError("In RendererWrapper, `dimensions.width` must be a number");
+			}
+		} catch (e) {
+			console.error(e.name, e.message);
+		}
+
 		var Renderer = chartRenderers[chartType];
 		var chartProps;
 		var metadata;
@@ -222,29 +237,82 @@ var RendererWrapper = React.createClass({
 
 		var isSmall = (this.state.svgSizeClass === "small");
 
-		// override metadata with mobile-specific settings if defined
-		// TODO: remove this feature? seems never used
+		// override metadats with mobile-specific settings if defined
 		if (this.props.enableResponsive && this.props.model.chartProps.mobile && isSmall) {
 			metadata = this._getMobileMetadata(this.props.model.metadata, this.props.model.chartProps.mobile);
 		} else {
 			metadata = this.props.model.metadata;
 		}
 
-		// pass these props to the selected Renderer
-		return (
-			<div className={["renderer-wrapper", this.props.className].join(" ")}>
-				<Renderer
-					svgSizeClass={this.state.svgSizeClass}
-					width={width}
-					extraHeight={this.state.extraHeight}
-					chartProps={chartProps}
-					displayConfig={displayConfig}
-					styleConfig={this.state.styleConfig}
-					showMetadata={this.props.showMetadata}
+		var margin = this.state.chartConfig.display.margin;
+		var metadataSvg = [];
+		var title;
+
+		var translate = {
+			top: margin.top,
+			right: dimensions.width - margin.right,
+			bottom: dimensions.height - margin.bottom,
+			left: margin.left
+		};
+
+		if (this.props.showMetadata) {
+			if (metadata.title && metadata.title !== "") {
+				title = (
+					<SvgText
+						text={metadata.title}
+						key="title"
+						translate={[translate.left, translate.top]}
+						align="top"
+						className="svg-text-title"
+					/>
+				);
+				metadataSvg.push(title);
+			}
+
+			metadataSvg.push(
+				<ChartFooter
 					metadata={metadata}
-					editable={this.props.editable}
-					enableResponsive={this.props.enableResponsive}
+					extraHeight={this.state.extraHeight}
+					key="chartFooter"
+					translate={translate}
+					onUpdate={this._handleSvgUpdate.bind(null, "extraHeight")}
+					chartWidth={dimensions.width - margin.left - margin.right}
+					className="svg-credit-data"
 				/>
+			);
+		}
+		return (
+			<div className={["renderer-wrapper", this.state.svgSizeClass, this.props.className].join(" ")}>
+				<svg
+					key={chartType}
+					className={["renderer-svg", svgClassName].join(" ")}
+					width={dimensions.width}
+					height={dimensions.height}
+				>
+					<g className="svg-background-wrap">
+						<rect
+							className="svg-background"
+							width={dimensions.width}
+							height={dimensions.height}
+							x={0}
+							y={0}
+						/>
+					</g>
+					<Renderer
+						width={width}
+						extraHeight={this.state.extraHeight}
+						chartProps={chartProps}
+						dimensions={dimensions}
+						isSmall={isSmall}
+						displayConfig={displayConfig}
+						styleConfig={this.state.styleConfig}
+						showMetadata={this.props.showMetadata}
+						metadata={metadata}
+						editable={this.props.editable}
+						enableResponsive={this.props.enableResponsive}
+					/>
+					{metadataSvg}
+				</svg>
 			</div>
 		);
 	}

@@ -1,4 +1,4 @@
-var React = require("react");
+global.React = require("react");
 var ReactDOM = require("react-dom")
 
 var container = document.querySelector(".chartbuilder-container");

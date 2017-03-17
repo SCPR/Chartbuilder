@@ -24,20 +24,15 @@ var ChartConfig = require("../ChartConfig");
 * @property {object} padding - Distances btwn inner chart elements and container
 */
 var display = {
-	afterTitle: "1.6em", // distance between top of title and top of legend or chart
-	afterLegend: "0.8em", // distance between top of legend and top of chart
-	blockerRectOffset: "0.25em", // distance between text and background blocker rect
-	barHeight: "1.9em", // height of each bars
+	afterTitle: "1.25em", // distance between top of title and top of legend or chart
+	afterLegend: "0.5em", // distance between top of legend and top of chart
+	blockerRectOffset: 6, // distance between text and background blocker rect
+	paddingPerBar: "0.7em", // extra space around bars
+	barHeight: "0.9em", // height of each bars
+	afterXYBottom: "2em",
+	afterXYRight: "0.8em",
 	columnExtraPadding: "0.5em",
-	barInnerPadding: 0.4, // % of col group width to pad btwn each
-	barOuterPadding: 0.1, // % of col group width to pad btwn each
 	bottomPaddingWithoutFooter: "0.5em",
-	gridPadding: {
-		xInnerPadding: 0.05,
-		xOuterPadding: 0,
-		yInnerPadding: 0.05,
-		yOuterPadding: 0
-	},
 	xy: require("../cb-xy/xy-config").display,
 	margin: {
 		top: "0.8em",
@@ -46,9 +41,9 @@ var display = {
 		left: "0.25em"
 	},
 	padding: {
-		top: "0.4em",
+		top: "0.5em",
 		right: 0,
-		bottom: "1em",
+		bottom: "1.5em",
 		left: 0
 	}
 };
@@ -86,16 +81,16 @@ var defaultProps = {
 				ticks: 5,
 				precision: 0,
 				prefix: "",
-				suffix: ""
+				suffix: "%"
 			},
 			dateSettings: {
-				dateFrequency: "auto",
-				dateFormat: "auto",
+				dateFrequency: "us-me4",
+                dateFormat: "auto",
 				inputTZ: null,
 				displayTZ: "as-entered"
 			},
 			numericSettings: {
-				ticks: 5,
+				ticks: null,
 				precision: 0,
 				prefix: "",
 				suffix: ""
@@ -121,12 +116,12 @@ var defaultProps = {
 	 * @memberof chart_grid_defaultProps
 	 */
 	metadata: {
-		id: null,
-		chartType: "chartgrid",
-		title: "",
-		source: "",
-		credit: "Made with Chartbuilder",
-		size: "auto"
+        id: null,
+        chartType: "chartgrid",
+        title: "LA County Voter Turnout (1962-2014)",
+        source: "Via LA County Registrar/Recorder website",
+        credit: "KPCC using Quartz\'s Chartbuilder",
+        size: "auto"
 	}
 };
 

@@ -105,14 +105,6 @@ function registeredCallback(payload) {
 			}
 			break;
 
-		case "update-data-input":
-			if (!titleDirty) {
-				data = ChartPropertiesStore.get("data");
-				_metadata.title = defaultTitle(data);
-				ChartMetadataStore.emitChange();
-			}
-			break;
-
 		default:
 			// do nothing
 	}

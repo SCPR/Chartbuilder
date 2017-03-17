@@ -1,418 +1,346 @@
 [data-color-index="0"] path {
-  stroke: #a50026;
+  stroke: #d15904;
 }
 [data-color-index="0"] rect {
-  fill: #a50026;
+  fill: #d15904;
 }
 [data-color-index="0"] circle {
-  stroke: #a50026;
+  stroke: #d15904;
   stroke-width: 2px;
-  fill: #a50026;
+  fill: #d15904;
 }
 .color-index-0 {
-  fill: #a50026;
-}
-rect.color-index-0 {
-  fill: #a50026;
-}
-path.color-index-0 {
-  stroke: #a50026;
-}
-circle.color-index-0 {
-  fill: #a50026;
+  fill: #d15904;
 }
 rect[data-color-index="0"] {
-  fill: #a50026;
+  fill: #d15904;
 }
 text[data-color-index="0"] {
-  fill: #a50026;
+  fill: #d15904;
 }
-g.axis.color-index-0 text {
-  fill: #a50026;
+.d4 .axis .tick text[data-color-index="0"] {
+  fill: #d15904;
 }
 .cb-colorpicker-color-0 {
-  background-color: #a50026;
+  background-color: #d15904;
 }
 .series-label-0 {
-  color: #a50026;
+  color: #d15904;
 }
 .series-label-input-0 {
-  border-bottom: 2px solid #a50026;
+  border-bottom: 2px solid #d15904;
 }
 .series-label-input-0:hover,
 .series-label-input-0:focus {
   border: none;
-  border-bottom: 2px solid #a50026;
+  border-bottom: 2px solid #d15904;
 }
 .series-label-input-0 input {
-  color: #a50026;
+  color: #d15904;
 }
 .cb-toggle.toggled.toggle-0 .cb-toggle-container {
-  background-color: #a50026;
+  background-color: #d15904;
 }
 [data-color-index="1"] path {
-  stroke: #fdae61;
+  stroke: #007397;
 }
 [data-color-index="1"] rect {
-  fill: #fdae61;
+  fill: #007397;
 }
 [data-color-index="1"] circle {
-  stroke: #fdae61;
+  stroke: #007397;
   stroke-width: 2px;
-  fill: #fdae61;
+  fill: #007397;
 }
 .color-index-1 {
-  fill: #fdae61;
-}
-rect.color-index-1 {
-  fill: #fdae61;
-}
-path.color-index-1 {
-  stroke: #fdae61;
-}
-circle.color-index-1 {
-  fill: #fdae61;
+  fill: #007397;
 }
 rect[data-color-index="1"] {
-  fill: #fdae61;
+  fill: #007397;
 }
 text[data-color-index="1"] {
-  fill: #fdae61;
+  fill: #007397;
 }
-g.axis.color-index-1 text {
-  fill: #fdae61;
+.d4 .axis .tick text[data-color-index="1"] {
+  fill: #007397;
 }
 .cb-colorpicker-color-1 {
-  background-color: #fdae61;
+  background-color: #007397;
 }
 .series-label-1 {
-  color: #fdae61;
+  color: #007397;
 }
 .series-label-input-1 {
-  border-bottom: 2px solid #fdae61;
+  border-bottom: 2px solid #007397;
 }
 .series-label-input-1:hover,
 .series-label-input-1:focus {
   border: none;
-  border-bottom: 2px solid #fdae61;
+  border-bottom: 2px solid #007397;
 }
 .series-label-input-1 input {
-  color: #fdae61;
+  color: #007397;
 }
 .cb-toggle.toggled.toggle-1 .cb-toggle-container {
-  background-color: #fdae61;
+  background-color: #007397;
 }
 [data-color-index="2"] path {
-  stroke: #d73027;
+  stroke: #e6ab02;
 }
 [data-color-index="2"] rect {
-  fill: #d73027;
+  fill: #e6ab02;
 }
 [data-color-index="2"] circle {
-  stroke: #d73027;
+  stroke: #e6ab02;
   stroke-width: 2px;
-  fill: #d73027;
+  fill: #e6ab02;
 }
 .color-index-2 {
-  fill: #d73027;
-}
-rect.color-index-2 {
-  fill: #d73027;
-}
-path.color-index-2 {
-  stroke: #d73027;
-}
-circle.color-index-2 {
-  fill: #d73027;
+  fill: #e6ab02;
 }
 rect[data-color-index="2"] {
-  fill: #d73027;
+  fill: #e6ab02;
 }
 text[data-color-index="2"] {
-  fill: #d73027;
+  fill: #e6ab02;
 }
-g.axis.color-index-2 text {
-  fill: #d73027;
+.d4 .axis .tick text[data-color-index="2"] {
+  fill: #e6ab02;
 }
 .cb-colorpicker-color-2 {
-  background-color: #d73027;
+  background-color: #e6ab02;
 }
 .series-label-2 {
-  color: #d73027;
+  color: #e6ab02;
 }
 .series-label-input-2 {
-  border-bottom: 2px solid #d73027;
+  border-bottom: 2px solid #e6ab02;
 }
 .series-label-input-2:hover,
 .series-label-input-2:focus {
   border: none;
-  border-bottom: 2px solid #d73027;
+  border-bottom: 2px solid #e6ab02;
 }
 .series-label-input-2 input {
-  color: #d73027;
+  color: #e6ab02;
 }
 .cb-toggle.toggled.toggle-2 .cb-toggle-container {
-  background-color: #d73027;
+  background-color: #e6ab02;
 }
 [data-color-index="3"] path {
-  stroke: #abd9e9;
+  stroke: #313695;
 }
 [data-color-index="3"] rect {
-  fill: #abd9e9;
+  fill: #313695;
 }
 [data-color-index="3"] circle {
-  stroke: #abd9e9;
+  stroke: #313695;
   stroke-width: 2px;
-  fill: #abd9e9;
+  fill: #313695;
 }
 .color-index-3 {
-  fill: #abd9e9;
-}
-rect.color-index-3 {
-  fill: #abd9e9;
-}
-path.color-index-3 {
-  stroke: #abd9e9;
-}
-circle.color-index-3 {
-  fill: #abd9e9;
+  fill: #313695;
 }
 rect[data-color-index="3"] {
-  fill: #abd9e9;
+  fill: #313695;
 }
 text[data-color-index="3"] {
-  fill: #abd9e9;
+  fill: #313695;
 }
-g.axis.color-index-3 text {
-  fill: #abd9e9;
+.d4 .axis .tick text[data-color-index="3"] {
+  fill: #313695;
 }
 .cb-colorpicker-color-3 {
-  background-color: #abd9e9;
+  background-color: #313695;
 }
 .series-label-3 {
-  color: #abd9e9;
+  color: #313695;
 }
 .series-label-input-3 {
-  border-bottom: 2px solid #abd9e9;
+  border-bottom: 2px solid #313695;
 }
 .series-label-input-3:hover,
 .series-label-input-3:focus {
   border: none;
-  border-bottom: 2px solid #abd9e9;
+  border-bottom: 2px solid #313695;
 }
 .series-label-input-3 input {
-  color: #abd9e9;
+  color: #313695;
 }
 .cb-toggle.toggled.toggle-3 .cb-toggle-container {
-  background-color: #abd9e9;
+  background-color: #313695;
 }
 [data-color-index="4"] path {
-  stroke: #f46d43;
+  stroke: #f87e21;
 }
 [data-color-index="4"] rect {
-  fill: #f46d43;
+  fill: #f87e21;
 }
 [data-color-index="4"] circle {
-  stroke: #f46d43;
+  stroke: #f87e21;
   stroke-width: 2px;
-  fill: #f46d43;
+  fill: #f87e21;
 }
 .color-index-4 {
-  fill: #f46d43;
-}
-rect.color-index-4 {
-  fill: #f46d43;
-}
-path.color-index-4 {
-  stroke: #f46d43;
-}
-circle.color-index-4 {
-  fill: #f46d43;
+  fill: #f87e21;
 }
 rect[data-color-index="4"] {
-  fill: #f46d43;
+  fill: #f87e21;
 }
 text[data-color-index="4"] {
-  fill: #f46d43;
+  fill: #f87e21;
 }
-g.axis.color-index-4 text {
-  fill: #f46d43;
+.d4 .axis .tick text[data-color-index="4"] {
+  fill: #f87e21;
 }
 .cb-colorpicker-color-4 {
-  background-color: #f46d43;
+  background-color: #f87e21;
 }
 .series-label-4 {
-  color: #f46d43;
+  color: #f87e21;
 }
 .series-label-input-4 {
-  border-bottom: 2px solid #f46d43;
+  border-bottom: 2px solid #f87e21;
 }
 .series-label-input-4:hover,
 .series-label-input-4:focus {
   border: none;
-  border-bottom: 2px solid #f46d43;
+  border-bottom: 2px solid #f87e21;
 }
 .series-label-input-4 input {
-  color: #f46d43;
+  color: #f87e21;
 }
 .cb-toggle.toggled.toggle-4 .cb-toggle-container {
-  background-color: #f46d43;
+  background-color: #f87e21;
 }
 [data-color-index="5"] path {
-  stroke: #74add1;
+  stroke: #31abd4;
 }
 [data-color-index="5"] rect {
-  fill: #74add1;
+  fill: #31abd4;
 }
 [data-color-index="5"] circle {
-  stroke: #74add1;
+  stroke: #31abd4;
   stroke-width: 2px;
-  fill: #74add1;
+  fill: #31abd4;
 }
 .color-index-5 {
-  fill: #74add1;
-}
-rect.color-index-5 {
-  fill: #74add1;
-}
-path.color-index-5 {
-  stroke: #74add1;
-}
-circle.color-index-5 {
-  fill: #74add1;
+  fill: #31abd4;
 }
 rect[data-color-index="5"] {
-  fill: #74add1;
+  fill: #31abd4;
 }
 text[data-color-index="5"] {
-  fill: #74add1;
+  fill: #31abd4;
 }
-g.axis.color-index-5 text {
-  fill: #74add1;
+.d4 .axis .tick text[data-color-index="5"] {
+  fill: #31abd4;
 }
 .cb-colorpicker-color-5 {
-  background-color: #74add1;
+  background-color: #31abd4;
 }
 .series-label-5 {
-  color: #74add1;
+  color: #31abd4;
 }
 .series-label-input-5 {
-  border-bottom: 2px solid #74add1;
+  border-bottom: 2px solid #31abd4;
 }
 .series-label-input-5:hover,
 .series-label-input-5:focus {
   border: none;
-  border-bottom: 2px solid #74add1;
+  border-bottom: 2px solid #31abd4;
 }
 .series-label-input-5 input {
-  color: #74add1;
+  color: #31abd4;
 }
 .cb-toggle.toggled.toggle-5 .cb-toggle-container {
-  background-color: #74add1;
+  background-color: #31abd4;
 }
 [data-color-index="6"] path {
-  stroke: #4575b4;
+  stroke: #66a61e;
 }
 [data-color-index="6"] rect {
-  fill: #4575b4;
+  fill: #66a61e;
 }
 [data-color-index="6"] circle {
-  stroke: #4575b4;
+  stroke: #66a61e;
   stroke-width: 2px;
-  fill: #4575b4;
+  fill: #66a61e;
 }
 .color-index-6 {
-  fill: #4575b4;
-}
-rect.color-index-6 {
-  fill: #4575b4;
-}
-path.color-index-6 {
-  stroke: #4575b4;
-}
-circle.color-index-6 {
-  fill: #4575b4;
+  fill: #66a61e;
 }
 rect[data-color-index="6"] {
-  fill: #4575b4;
+  fill: #66a61e;
 }
 text[data-color-index="6"] {
-  fill: #4575b4;
+  fill: #66a61e;
 }
-g.axis.color-index-6 text {
-  fill: #4575b4;
+.d4 .axis .tick text[data-color-index="6"] {
+  fill: #66a61e;
 }
 .cb-colorpicker-color-6 {
-  background-color: #4575b4;
+  background-color: #66a61e;
 }
 .series-label-6 {
-  color: #4575b4;
+  color: #66a61e;
 }
 .series-label-input-6 {
-  border-bottom: 2px solid #4575b4;
+  border-bottom: 2px solid #66a61e;
 }
 .series-label-input-6:hover,
 .series-label-input-6:focus {
   border: none;
-  border-bottom: 2px solid #4575b4;
+  border-bottom: 2px solid #66a61e;
 }
 .series-label-input-6 input {
-  color: #4575b4;
+  color: #66a61e;
 }
 .cb-toggle.toggled.toggle-6 .cb-toggle-container {
-  background-color: #4575b4;
+  background-color: #66a61e;
 }
 [data-color-index="7"] path {
-  stroke: #313695;
+  stroke: #7570b3;
 }
 [data-color-index="7"] rect {
-  fill: #313695;
+  fill: #7570b3;
 }
 [data-color-index="7"] circle {
-  stroke: #313695;
+  stroke: #7570b3;
   stroke-width: 2px;
-  fill: #313695;
+  fill: #7570b3;
 }
 .color-index-7 {
-  fill: #313695;
-}
-rect.color-index-7 {
-  fill: #313695;
-}
-path.color-index-7 {
-  stroke: #313695;
-}
-circle.color-index-7 {
-  fill: #313695;
+  fill: #7570b3;
 }
 rect[data-color-index="7"] {
-  fill: #313695;
+  fill: #7570b3;
 }
 text[data-color-index="7"] {
-  fill: #313695;
+  fill: #7570b3;
 }
-g.axis.color-index-7 text {
-  fill: #313695;
+.d4 .axis .tick text[data-color-index="7"] {
+  fill: #7570b3;
 }
 .cb-colorpicker-color-7 {
-  background-color: #313695;
+  background-color: #7570b3;
 }
 .series-label-7 {
-  color: #313695;
+  color: #7570b3;
 }
 .series-label-input-7 {
-  border-bottom: 2px solid #313695;
+  border-bottom: 2px solid #7570b3;
 }
 .series-label-input-7:hover,
 .series-label-input-7:focus {
   border: none;
-  border-bottom: 2px solid #313695;
+  border-bottom: 2px solid #7570b3;
 }
 .series-label-input-7 input {
-  color: #313695;
+  color: #7570b3;
 }
 .cb-toggle.toggled.toggle-7 .cb-toggle-container {
-  background-color: #313695;
+  background-color: #7570b3;
 }
 [data-color-index="8"] path {
   stroke: #999;
@@ -428,22 +356,13 @@ g.axis.color-index-7 text {
 .color-index-8 {
   fill: #999;
 }
-rect.color-index-8 {
-  fill: #999;
-}
-path.color-index-8 {
-  stroke: #999;
-}
-circle.color-index-8 {
-  fill: #999;
-}
 rect[data-color-index="8"] {
   fill: #999;
 }
 text[data-color-index="8"] {
   fill: #999;
 }
-g.axis.color-index-8 text {
+.d4 .axis .tick text[data-color-index="8"] {
   fill: #999;
 }
 .cb-colorpicker-color-8 {
@@ -480,22 +399,13 @@ g.axis.color-index-8 text {
 .color-index-9 {
   fill: #666;
 }
-rect.color-index-9 {
-  fill: #666;
-}
-path.color-index-9 {
-  stroke: #666;
-}
-circle.color-index-9 {
-  fill: #666;
-}
 rect[data-color-index="9"] {
   fill: #666;
 }
 text[data-color-index="9"] {
   fill: #666;
 }
-g.axis.color-index-9 text {
+.d4 .axis .tick text[data-color-index="9"] {
   fill: #666;
 }
 .cb-colorpicker-color-9 {
@@ -532,22 +442,13 @@ g.axis.color-index-9 text {
 .color-index-10 {
   fill: #ccc;
 }
-rect.color-index-10 {
-  fill: #ccc;
-}
-path.color-index-10 {
-  stroke: #ccc;
-}
-circle.color-index-10 {
-  fill: #ccc;
-}
 rect[data-color-index="10"] {
   fill: #ccc;
 }
 text[data-color-index="10"] {
   fill: #ccc;
 }
-g.axis.color-index-10 text {
+.d4 .axis .tick text[data-color-index="10"] {
   fill: #ccc;
 }
 .cb-colorpicker-color-10 {
@@ -581,7 +482,7 @@ span.step-number {
   margin-right: 0.25em;
 }
 .editor-options {
-  font-family: 'Khula-Regular', Arial, Helvetica, sans-serif;
+  font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: 30px 0;
   display: block;
   width: 100%;
@@ -596,6 +497,7 @@ span.step-number {
 }
 .data-input textarea {
   font-family: Monaco, Lucida Console, monspace;
+  height: 20em;
   height: 12em;
 }
 .data-input input[type="file"] {
@@ -615,7 +517,7 @@ span.step-number {
   background-color: #f1f1f1;
   width: 100%;
   text-align: center;
-  font-family: 'Khula-Regular', Arial, Helvetica, sans-serif;
+  font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .data-input .file-drop p {
   font-size: 2em;
@@ -809,7 +711,7 @@ span.step-number {
 }
 .editor-label {
   font-size: 18px;
-  font-family: 'Khula-Regular', Arial, Helvetica, sans-serif;
+  font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .load-localstorage {
   display: none;
@@ -897,7 +799,7 @@ span.step-number {
   margin-bottom: 2em;
 }
 .mobile-overrides> h2:first-child {
-  font-family: "Khula-Bold", Arial, sans-serif;
+  font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin-bottom: 1em;
 }
 .mobile-overrides .scale-options {
@@ -910,23 +812,10 @@ div.renderer-wrapper {
   margin: 0;
   padding: 0;
 }
-svg.renderer-svg {
-  fill: #fff;
-  text-rendering: optimizeLegibility;
-  box-sizing: border-box;
-}
-svg.renderer-svg tspan {
-  height: 1em;
-  line-height: 1em;
-}
-svg .svg-background {
-  fill: #fff;
-}
 .em-size-wrapper {
   width: 100%;
 }
 .em-size {
-  font-size: 20px;
   position: absolute;
   visibility: hidden;
   top: 0;
@@ -936,38 +825,170 @@ svg .svg-background {
   width: 1em;
   height: 1em;
 }
-.small .em-size {
-  font-size: 14px;
+svg.renderer-svg {
+  fill: #fff;
+  font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-rendering: optimizeLegibility;
+  box-sizing: border-box;
+}
+svg.renderer-svg .svg-background {
+  fill: #fff;
+}
+svg.renderer-svg tspan {
+  height: 1em;
+  line-height: 1em;
+}
+.d4 {
+  font-size: 20px;
+}
+.d4 .leftAxis path.domain {
+  display: none;
+}
+.d4 .xAxis path.domain {
+  display: none;
+}
+.d4 .axis .tick {
+  font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.d4 .axis .tick[data-anchor="middle"] text {
+  text-anchor: middle;
+}
+.d4 .axis .tick text {
+  fill: #666;
+  shape-rendering: crispEdges;
+  text-anchor: middle;
+}
+.d4 .axis .tick:first-child text {
+  text-anchor: middle;
+}
+.d4 .axis .tick line {
+  fill: none;
+  stroke: #ddd;
+  stroke-width: 1px;
+  shape-rendering: crispEdges;
+}
+.d4 .axis .tick.zero line {
+  stroke: #333;
+}
+.d4 .axis .tick rect {
+  fill: #fff;
+  shape-rendering: crispEdges;
+}
+.d4 .axis.leftAxis text {
+  text-anchor: start;
+}
+.d4 .axis.rightAxis text {
+  text-anchor: end;
+}
+.d4 .axis[data-scale="time"] .tick:not([data-anchor="middle"]) text {
+  text-anchor: start;
+}
+.d4 .axis[data-scale="time"] .tick:first-child text {
+  text-anchor: start;
+}
+.d4 .xAxislabel {
+  fill: #666;
+}
+.d4 .concealer-label {
+  font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.d4 .concealer-label text {
+  fill: #666;
+}
+.d4 .concealer-label rect {
+  fill: #fff;
+}
+.d4 .connectors line {
+  fill: none;
+  stroke-width: 1px;
+}
+.d4 line.zero {
+  stroke: #333;
+  shape-rendering: crispEdges;
+}
+.d4 .margins .line path,
+.d4 .margins .other-line path {
+  fill: none;
+  stroke-width: 3px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.d4 .margins .label {
+  font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.d4 .column-label {
+  fill: #666;
+}
+.d4 line.no-label-tick {
+  fill: none;
+  stroke: #ddd;
+  stroke-width: 1px;
+  shape-rendering: crispEdges;
 }
 .svg-text {
+  font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 20px;
 }
 .svg-text tspan.em {
   font-style: italic;
 }
 .svg-text tspan.strong {
-  font-family: "Khula-Bold", Arial, sans-serif;
+  font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .svg-text tspan.strong .em,
 .svg-text tspan.em .strong {
-  font-family: "Khula-Bold", Arial, sans-serif;
+  font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-style: italic;
 }
 .svg-text.svg-text-credit {
-  fill: #ccc;
+  font-size: 12px;
+  fill: #333;
   text-anchor: start;
 }
 .svg-text.svg-text-source {
-  fill: #ccc;
+  font-size: 12px;
+  fill: #333;
 }
-.svg-text.svg-text-source.left {
+.svg-text.left {
   text-anchor: start;
 }
-.svg-text.svg-text-source.right {
+.svg-text.right {
   text-anchor: end;
 }
-.svg-text.svg-text-title {
+.svg-text-title {
   fill: #666;
+  font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 20px;
+}
+.svg-source-pipe {
+  stroke: #333;
+  fill: none;
+  stroke-width: 0.8px;
+}
+.svg-label-text {
+  font-size: 20px;
+  font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.svg-label-text.draggable {
+  cursor: move;
+}
+.crosshair line {
+  stroke-width: 1;
+  shape-rendering: crispEdges;
+  stroke: #000;
+}
+.hidden-svg {
+  visibility: hidden;
+}
+.medium .em-size {
+  font-size: 20px;
+}
+.medium .d4 {
+  font-size: 20px;
+}
+.medium .d4 .margins .line path,
+.medium .d4 .margins .other-line path {
+  stroke-width: 3px;
 }
 .medium .svg-text {
   font-size: 20px;
@@ -980,6 +1001,16 @@ svg .svg-background {
 }
 .medium .svg-text.svg-text-title {
   font-size: 20px;
+}
+.small .em-size {
+  font-size: 14px;
+}
+.small .d4 {
+  font-size: 14px;
+}
+.small .d4 .margins .line path,
+.small .d4 .margins .other-line path {
+  stroke-width: 2px;
 }
 .small .svg-text {
   font-size: 14px;
@@ -997,79 +1028,34 @@ svg .svg-background {
 .small .svg-text.svg-text-title {
   font-size: 14px;
 }
-.svg-label-text.draggable {
-  cursor: move;
-}
 .small .svg-label-text {
   font-size: 14px;
 }
-.hidden-svg {
-  visibility: hidden;
-}
-.series-line-path {
-  fill: none;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-.large .series-line-path {
-  stroke-width: 4px;
-}
-.medium .series-line-path {
-  stroke-width: 3px;
-}
-.small .series-line-path {
-  stroke-width: 2px;
-}
-.axis text.tick {
-  fill: #666;
-  shape-rendering: crispEdges;
-}
-.axis text.tick[data-anchor="middle"] text {
-  text-anchor: middle;
-}
-.axis text.tick.orient-left {
-  text-anchor: start;
-}
-.axis text.tick.orient-right {
-  text-anchor: end;
-}
-.axis text.tick.hidden-svg {
-  visibility: hidden;
-}
-.grid-lines line.tick {
-  stroke: #ddd;
-  stroke-width: 1px;
-  shape-rendering: crispEdges;
-}
-.grid-lines line.zero {
-  stroke: #333;
-  shape-rendering: crispEdges;
-}
-.concealer-label text {
-  fill: #666;
-}
-.concealer-label rect {
-  fill: #fff;
-}
-.blocker-rect {
-  fill: #fff;
-}
-.series-label {
+.large .em-size {
   font-size: 20px;
 }
-.small .series-label {
-  font-size: 14px;
+.large .d4 {
+  font-size: 20px;
 }
-.svg-source-pipe {
-  stroke: #ccc;
-  fill: none;
-  stroke-width: 0.8px;
+.large .d4 .margins .line path,
+.large .d4 .margins .other-line path {
+  stroke-width: 4px;
 }
-.crosshair line {
-  stroke-width: 1;
-  shape-rendering: crispEdges;
-  stroke: #000;
+.large .svg-text {
+  font-size: 20px;
+}
+.large .svg-text.svg-text-credit {
+  font-size: 12px;
+}
+.large .svg-text.svg-text-source {
+  font-size: 12px;
+}
+.large .svg-text.svg-text-title {
+  font-size: 20px;
+}
+.large .svg-label-text {
+  font-size: 20px;
 }
 .cb-credit-logo {
-  fill: #ccc;
+  fill: #333;
 }

@@ -87,11 +87,13 @@ var HiddenSvgAxis = React.createClass({
 			// actual ticks in order for this to work
 			// TODO: pass className via prop
 			return (
-				<text className="tick" key={i} x="0" y="0" dy="0.32em">{tick}</text>
+				<g key={i} className={this.props.className}>
+					<text style={{"textAnchor": "start"}} x="0" y="0" dy="0.32em">{tick}</text>
+				</g>
 			);
 		}, this);
 		return (
-			<g className="hidden-svg" transform={"translate(" + [0, 100] + ")"}>
+			<g className="d4 hidden-svg" transform={"translate(" + [0, -100] + ")"}>
 				<g className="axis">
 					{tickText}
 				</g>
@@ -229,7 +231,7 @@ var HiddenSvgBarLabels = React.createClass({
 			);
 		}, this);
 		return (
-			<g className="hidden-svg">
+			<g className="d4 hidden-svg">
 				<g className="axis">
 					{labelText}
 				</g>
