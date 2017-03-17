@@ -36,12 +36,18 @@ var display = {
 	labelXMargin: "0.6em",
 	labelTextMargin: "0.3em",
 	labelRowHeight: "1.2em",
-	afterTitle: "1.6em",
-	afterLegend: "1.6em",
-	blockerRectOffset: "0.3em",
-	columnPaddingCoefficient: 0.3,
+	afterTitle: "1.4em",
+	afterLegend: "1em",
+	blockerRectOffset: "0.2em",
+	lineMarkThreshold: 10, // render marks (dots) on lines if data < N
+	columnOuterPadding: 0.01, // % of width to pad for columns
+	columnInnerPadding: 0, // % of col group width to pad btwn each
 	minPaddingOuter: "1em",
 	bottomPaddingWithoutFooter: "3em",
+	yAxisOrient: {
+		primaryScale: "left",
+		secondaryScale: "right",
+	},
 	aspectRatio: {
 		wide: (9 / 16),
 		longSpot: (4 / 3),
@@ -56,7 +62,7 @@ var display = {
 	padding: {
 		top: 0,
 		right: 0,
-		bottom: "4em",
+		bottom: "3.5em",
 		left: 0
 	}
 };
@@ -90,10 +96,10 @@ var defaultProps = {
 				ticks: 5,
 				precision: 0,
 				prefix: "",
-				suffix: "%"
+				suffix: ""
 			},
 			dateSettings: {
-				dateFrequency: "us-me4",
+				dateFrequency: "auto",
 				dateFormat: "auto",
 				inputTZ: null,
 				displayTZ: "as-entered"
@@ -137,10 +143,10 @@ var defaultProps = {
 	 */
 	metadata: {
 		chartType: 'xy',
-        title: "LA County Voter Turnout (1962-2014)",
-        source: "Via LA County Registrar/Recorder website",
-        credit: "KPCC using Quartz\'s Chartbuilder",
-        size: "auto"
+		title: "",
+		source: "",
+		credit: "Made with Chartbuilder",
+		size: "auto"
 	}
 };
 
